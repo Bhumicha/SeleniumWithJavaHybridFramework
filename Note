@@ -1,0 +1,17 @@
+1. Analysing AUT
+ - Number of pages
+ -What are all elements/how/type
+ -what to automate/ what we can not automate
+
+ 2. Choose test cases for automation
+
+- Sanity test cases - priority1
+- Data driven test cases - priority2
+- Regression test cases - -priority3
+- Any other cases - priority4
+
+ 3. Design and Development of framework
+
+ 4. Execution - local and remote
+
+ 5. Maintenance
