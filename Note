@@ -15,3 +15,52 @@
  4. Execution - local and remote
 
  5. Maintenance
+
+ E-commerce domain
+ 1. Frontend operations (customers/users)
+  - register account
+  - login
+  -search
+  -add/edit/delete products from cart
+  - reviews
+
+2. Backend operations
+ - products
+ - customers
+ - store
+
+ Hybrid Automation Framework
+ (Java, Selenium, TestNG, Maven, Page Object Model)
+
+ 1. Create Maven project
+ (Add following dependencies on POM file.)
+  - Selenium java
+  - Apache poi
+  - Poi xml
+  - Log4j-core
+  - log4j-api
+  - commons-io
+  - commons-lang3
+  - testng
+  - extent reports
+
+  2. Folder structure
+  projectABC
+  src/test/java
+    -pageObjects
+    -testBase
+    -testCases
+    -utilities
+  Src/test/resources
+  JRE System Library
+  logs
+  reports
+  screenshots
+  src
+  target
+  testData
+  pom.xml
+  TestNG.xml
+
+
+
