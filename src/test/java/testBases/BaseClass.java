@@ -4,6 +4,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -11,6 +12,7 @@ import java.time.Duration;
 
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
+import org.testng.annotations.Parameters;
 
 
 public class BaseClass {
@@ -18,13 +20,21 @@ public class BaseClass {
     public Logger logger;
 
     @BeforeClass
-    public void setUp()
+    @Parameters ({"browser"})
+    public void setUp(String br)
     {
         logger= LogManager.getLogger(this.getClass());
+
+        switch(br)
+        {
+            case "edge" : driver=new EdgeDriver();
+            case "chrome" : driver=new ChromeDriver();
+            default:
+                System.out.println("Invalid browser");
+        }
 //        ChromeOptions options=new ChromeOptions();
 //        options.addArguments("--headless=new");
 //        driver = new ChromeDriver(options);
-        driver=new ChromeDriver();
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.get("https://demo.opencart.com/");
