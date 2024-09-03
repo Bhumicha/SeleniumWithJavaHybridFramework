@@ -9,12 +9,18 @@ import org.testng.annotations.BeforeClass;
 
 import java.time.Duration;
 
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+
+
 public class BaseClass {
     public WebDriver driver;
+    public Logger logger;
 
     @BeforeClass
     public void setUp()
     {
+        logger= LogManager.getLogger(this.getClass());
 //        ChromeOptions options=new ChromeOptions();
 //        options.addArguments("--headless=new");
 //        driver = new ChromeDriver(options);
@@ -39,5 +45,9 @@ public class BaseClass {
         String generateString= RandomStringUtils.randomAlphabetic(3);
         String generateNumeric=RandomStringUtils.randomNumeric(3);
         return (generateString+generateNumeric);
+    }
+
+    public void setDriver(WebDriver driver) {
+        this.driver = driver;
     }
 }
