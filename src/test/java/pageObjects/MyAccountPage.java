@@ -13,6 +13,9 @@ public class MyAccountPage extends BasePage {
     @FindBy(xpath = "//h2[normalize-space()='My Account']")
     WebElement msgHeading;
 
+    @FindBy(xpath = "(//a[contains(text(),'Logout')])[2]")
+    WebElement lnkLogout;
+
     public boolean isMyAccountPageExists()
     {
         try
@@ -23,6 +26,10 @@ public class MyAccountPage extends BasePage {
         {
             return false;
         }
+    }
+    public void clickLogout()
+    {
+        lnkLogout.click();
     }
 
 

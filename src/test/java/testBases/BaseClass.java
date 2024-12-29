@@ -16,6 +16,7 @@ import java.util.Properties;
 
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 
 
@@ -24,9 +25,15 @@ public class BaseClass {
     public Logger logger;
     public Properties p;
 
+    public void setDriver(WebDriver driver)
+    {
+        this.driver = driver;
+    }
+
     @BeforeClass
     @Parameters ({"browser"})
     public void setUp(String br) throws IOException {
+
 
         //Loading config.properties file
         FileReader file=new FileReader(".//src//test//resources//config.properties");
@@ -39,8 +46,6 @@ public class BaseClass {
         {
             case "edge" : driver=new EdgeDriver();
             case "chrome" : driver=new ChromeDriver();
-            default:
-                System.out.println("Invalid browser");
         }
 //        ChromeOptions options=new ChromeOptions();
 //        options.addArguments("--headless=new");
@@ -67,7 +72,5 @@ public class BaseClass {
         return (generateString+generateNumeric);
     }
 
-    public void setDriver(WebDriver driver) {
-        this.driver = driver;
-    }
+
 }
